@@ -8,36 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Libre+Caslon+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-      /* --- Variable Setup --- */
-      :root {
-        --bg-color: #e6d3c3; 
-        --content-width: 1200px;
-        --text-dark: #1e1e1e;
-        --text-light: #f7f3f3; 
-        --text-green: #174517;
-        --padding-main: 40px; 
-        --font-size-base: 18px; 
-        --line-height-base: 1.7; 
-      }
 
       /* --- Base styles & Centering --- */
       body {
-        background-color: var(--bg-color);
+        background-color: #e6d3c3;
         font-family: "Diphylleia", serif;
-        font-size: var(--font-size-base); 
-        line-height: var(--line-height-base);
+        font-size: 18px; 
+        line-height: 1.7;
         margin: 0;
         padding: 0;
         min-height: 100vh;
         
-        /* Centering the content wrapper vertically and horizontally */
+        /* Centering the content card */
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; /* Align content to the top */
-        padding-top: 20px; /* Space for the header */
+        justify-content: flex-start;
+        padding-top: 20px; 
         
-        /* Background image for Frame 6 */
         background-image: url('cooking.jpg'); 
         background-size: cover;
         background-position: center;
@@ -54,20 +42,13 @@
           z-index: -1; 
       }
       
-      /* Wrapper to hold the content card (narrow, like in the mockup) */
-      .card-wrapper {
-          width: 100%;
-          max-width: 600px; 
-          position: relative;
-      }
-
-      /* --- HEADER (Floating over the image) --- */
+      /* --- HEADER (Fixed/Floating over the image) --- */
       header {
-        position: fixed; /* Fixed position so it scrolls with the top of the viewport */
+        position: fixed; 
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        width: var(--content-width); 
+        width: 1200px; /* Hard-coded width */
         max-width: calc(100% - 40px);
         z-index: 100;
         
@@ -81,14 +62,15 @@
         box-sizing: border-box;
       }
 
-      .logo {
+      .logo a {
         font-size: 24px;
         font-weight: bold;
-        color: var(--text-light); 
+        color: #f7f3f3; /* Text Light */
         font-family: "Libre Caslon Display", serif;
+        text-decoration: none;
       }
-
-      .search {
+      
+      .recipe-bar {
         width: 300px;
         height: 28px;
         padding: 8px 15px;
@@ -98,32 +80,42 @@
         line-height: 28px;
         text-align: center;
       }
+      
+      .recipe-bar a {
+          text-decoration: none;
+          color: #aaa;
+      }
+
 
       /* --- Main Card Container (Dark Box) --- */
       .recipe-card {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto; 
+          
         background-color: rgba(20, 20, 20, 0.7); 
         border-radius: 20px;
         padding: 30px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        color: var(--text-light);
-        margin-top: 120px; /* Offset for header */
+        color: #f7f3f3; /* Text Light */
+        margin-top: 120px; 
         margin-bottom: 40px;
       }
 
       /* --- Typography --- */
       h1 {
-        font-size: 2.5em;
+        font-size: 15epx;
         font-family: "Libre Caslon Display", serif;
         font-weight: 600;
-        color: var(--text-light);
+        color: #f7f3f3;
         margin-top: 0;
       }
 
       h2 {
         font-family: "Libre Caslon Display", serif;
-        font-size: 1.8em;
+        font-size: 25px;
         font-weight: 700;
-        color: var(--text-light);
+        color: #f7f3f3;
         margin-top: 25px;
         margin-bottom: 10px;
       }
@@ -132,7 +124,7 @@
         font-family: "Diphylleia", serif;
         font-weight: 500;
         margin: 0;
-        font-size: 1em;
+        font-size: 18px;
       }
 
       /* --- Content Layout --- */
@@ -144,11 +136,11 @@
       }
       
       .recipe-image {
-          width: 150px;
-          height: 150px;
-          border-radius: 15px; /* Square image with rounded corners */
+          width: 275px;
+          height: 275px;
+          border-radius: 15px; 
           object-fit: cover;
-          border: 4px solid var(--text-light);
+          border: 4px solid #f7f3f3;
       }
       
       .stats-bar {
@@ -166,55 +158,12 @@
           font-family: "Libre Caslon Display", serif;
           font-size: 1.1em;
           font-weight: 700;
-          color: var(--text-light);
+          color: #f7f3f3;
           margin-bottom: 3px;
       }
-
-      /* --- List Styling (Inherited from your previous examples) --- */
-      .content-list {
-        list-style: none;
-        padding-left: 0;
-        font-size: 0.9em; /* Slightly smaller for detailed lists */
-        line-height: 1.5;
-      }
-      
-      .content-list li {
-        margin-bottom: 8px;
-        padding-left: 1.2em;
-        position: relative;
-      }
-      
-      /* Bullet for Ingredients */
-      .content-list.ingredients li::before {
-        content: '•';
-        color: var(--text-green);
-        font-weight: bold;
-        display: inline-block;
-        width: 1em;
-        margin-left: -1.2em;
-      }
-      
-      /* Numbering for Instructions */
-      .content-list.instructions {
-          counter-reset: step-counter;
-      }
-      
-      .content-list.instructions li {
-          counter-increment: step-counter;
-      }
-      
-      .content-list.instructions li::before {
-          content: counter(step-counter) ".";
-          color: var(--text-green);
-          font-weight: bold;
-          display: inline-block;
-          width: 1em;
-          margin-left: -1.2em;
-      }
-      
       /* --- Story/Review section --- */
       .story-box {
-          background-color: rgba(255, 255, 255, 0.1); /* Lighter background for the story box */
+          background-color: rgba(255, 255, 255, 0.1); 
           border-radius: 10px;
           padding: 20px;
           margin-top: 30px;
@@ -231,61 +180,63 @@
     <div class="overlay"></div>
     
     <header>
-      <div class="logo">Logo</div>
-      <div class="search">Search...</div>
+      <div class="logo">
+        <a href="index.html">Trushti's Recipe Journal</a>
+      </div>
+      <div class="recipe-bar">
+        <a href="lonly_noodles.html">Recipe...</a>
+      </div>
     </header>
     
-    <div class="card-wrapper">
-        <div class="recipe-card">
+    <div class="recipe-card">
+        
+        <div class="top-content">
+            <img src="lonely-noodles-dish.jpg" alt="Lonely Noodles Dish" class="recipe-image" />
             
-            <div class="top-content">
-                <img src="lonely-noodles-dish.jpg" alt="Lonely Noodles Dish" class="recipe-image" />
+            <div style="flex-grow: 1;">
+                <h1>Lonely Noodles</h1>
+                <div style="font-size: 0.9em; margin: 5px 0 15px 0; color: #bbb;">By: Trushti S.</div>
                 
-                <div style="flex-grow: 1;">
-                    <h1>Lonely Noodles</h1>
-                    <div style="font-size: 0.9em; margin: 5px 0 15px 0; color: #bbb;">By: Trushti S.</div>
-                    
-                    <div class="stats-bar">
-                        <div class="stat-item">
-                            <strong>Servings</strong>
-                            <h4>1 Bowl</h4>
-                        </div>
-                        <div class="stat-item">
-                            <strong>Prep Time</strong>
-                            <h4>5 Min</h4>
-                        </div>
-                        <div class="stat-item">
-                            <strong>Cook Time</strong>
-                            <h4>10 Min</h4>
-                        </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <strong>Servings</strong>
+                        <h4>1 Bowl</h4>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Prep Time</strong>
+                        <h4>5 Min</h4>
+                    </div>
+                    <div class="stat-item">
+                        <strong>Cook Time</strong>
+                        <h4>10 Min</h4>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <h2>Ingredients</h2>
-            <ul class="content-list ingredients">
-                <li>1 pack of instant ramen/noodles</li>
-                <li>1 egg, fried or soft-boiled</li>
-                <li>A handful of cherry tomatoes, halved</li>
-                <li>A few slices of cucumber</li>
-                <li>Soy sauce and chili oil to taste</li>
-                <li>1 spring onion, chopped</li>
-            </ul>
-            
-            <h2>Instructions</h2>
-            <ol class="content-list instructions">
-                <li>Boil water and cook the instant noodles. Drain, reserving about 1 cup of cooking water.</li>
-                <li>Add the spice/flavor packet to the reserved water in the pot. Stir to dissolve.</li>
-                <li>Add the cooked noodles back to the pot with the broth. Stir in soy sauce and chili oil.</li>
-                <li>Transfer the noodles and broth to a serving bowl.</li>
-                <li>Top with the fried egg, cherry tomatoes, cucumber slices, and spring onion. Serve immediately.</li>
-            </ol>
-            
-            <div class="story-box">
-                <p>
-                    I made these noodles on a night when the apartment felt too quiet. Even the microwave felt louder than me. I wasn't really hungry—just needing for something warm. The steam from the pot made the room feel less empty. Not perfect, not fancy... but enough.
-                </p>
-            </div>
+        <h2>Ingredients</h2>
+        <ul class="content-list ingredients">
+            <li>1 pack of instant ramen/noodles</li>
+            <li>1 egg, fried or soft-boiled</li>
+            <li>A handful of cherry tomatoes, halved</li>
+            <li>A few slices of cucumber</li>
+            <li>Soy sauce and chili oil to taste</li>
+            <li>1 spring onion, chopped</li>
+        </ul>
+        
+        <h2>Instructions</h2>
+        <ol class="content-list instructions">
+            <li>Boil water and cook the instant noodles. Drain, reserving about 1 cup of cooking water.</li>
+            <li>Add the spice/flavor packet to the reserved water in the pot. Stir to dissolve.</li>
+            <li>Add the cooked noodles back to the pot with the broth. Stir in soy sauce and chili oil.</li>
+            <li>Transfer the noodles and broth to a serving bowl.</li>
+            <li>Top with the fried egg, cherry tomatoes, cucumber slices, and spring onion. Serve immediately.</li>
+        </ol>
+        
+        <div class="story-box">
+            <p>
+                I made these noodles on a night when the apartment felt too quiet. Even the microwave felt louder than me. I wasn't really hungry—just needing for something warm. The steam from the pot made the room feel less empty. Not perfect, not fancy... but enough.
+            </p>
         </div>
     </div>
   </body>

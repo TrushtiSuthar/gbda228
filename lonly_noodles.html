@@ -8,36 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Libre+Caslon+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-      /* --- Variable Setup --- */
-      :root {
-        --bg-color: #e6d3c3; 
-        --content-width: 1200px;
-        --text-dark: #1e1e1e;
-        --text-light: #f7f3f3; /* Used for text on dark backgrounds */
-        --text-green: #174517;
-        --padding-main: 40px; 
-        --font-size-base: 18px; 
-        --line-height-base: 1.7; 
-      }
-
+      /* --- Direct Value Setup (Mapping previous variables) --- */
+      /* Colors: #e6d3c3 (body), #f7f3f3 (text light), #174517 (text green) */
+      
       /* --- Base styles & Centering --- */
       body {
-        background-color: var(--bg-color);
+        background-color: #e6d3c3;
         font-family: "Diphylleia", serif;
-        font-size: var(--font-size-base); 
-        line-height: var(--line-height-base);
+        font-size: 18px; 
+        line-height: 1.7;
         margin: 0;
         padding: 0;
         min-height: 100vh;
         
-        /* Centering the content wrapper vertically and horizontally */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         
-        /* Background image for Frame 3 */
-        background-image: url('cooking.jpg'); /* Use the kitchen image */
+        background-image: url('cooking.jpg'); 
         background-size: cover;
         background-position: center;
       }
@@ -49,46 +38,40 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.4); /* Semi-transparent dark wash */
-          backdrop-filter: blur(8px); /* Blur the background image */
-          z-index: -1; /* Keep behind the content */
-      }
-      
-      /* Wrapper to hold the content card (narrow, like in the mockup) */
-      .card-wrapper {
-          width: 100%;
-          max-width: 600px; /* Narrower than 1200px to match the visual card */
-          position: relative;
+          background: rgba(0, 0, 0, 0.4); 
+          backdrop-filter: blur(8px); 
+          z-index: -1; 
       }
 
-      /* --- HEADER (Floating over the image) --- */
+      /* --- HEADER (Fixed/Floating over the image) --- */
       header {
-        position: absolute;
+        position: fixed; /* Fixed position makes it stay on screen */
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        width: var(--content-width); 
+        width: 1200px; 
         max-width: calc(100% - 40px);
         z-index: 100;
         
         display: flex;
         justify-content: space-between;
         padding: 15px 30px;
-        background: rgba(255, 255, 255, 0.2); /* Lighter header on dark background */
+        background: rgba(255, 255, 255, 0.2); 
         backdrop-filter: blur(6px); 
         border-radius: 20px;
         align-items: center;
         box-sizing: border-box;
       }
 
-      .logo {
+      .logo a {
         font-size: 24px;
         font-weight: bold;
-        color: var(--text-light); /* Light logo text */
+        color: #f7f3f3; /* Text Light */
         font-family: "Libre Caslon Display", serif;
+        text-decoration: none; /* Remove underline from link */
       }
 
-      .search {
+      .recipe-bar {
         width: 300px;
         height: 28px;
         padding: 8px 15px;
@@ -98,16 +81,30 @@
         line-height: 28px;
         text-align: center;
       }
+      
+      .recipe-bar a {
+          text-decoration: none;
+          color: #aaa;
+      }
 
       /* --- Main Card Container (Dark Box) --- */
       .recipe-card {
-        background-color: rgba(20, 20, 20, 0.7); /* Dark semi-transparent background */
+        /* Replaces .card-wrapper centering */
+        width: 100%;
+        max-width: 600px; 
+        margin: 0 auto; 
+          
+        background-color: rgba(20, 20, 20, 0.7); 
         border-radius: 20px;
         padding: 30px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        color: var(--text-light);
-        margin-top: 120px; /* Offset for header */
+        color: #f7f3f3; /* Text Light */
+        /* Since body is centering us, we don't need margin-top for card */
         text-align: center;
+        
+        /* Ensure the card has space from the bottom if viewport is very short */
+        margin-top: 100px; 
+        margin-bottom: 50px;
       }
 
       /* --- Typography --- */
@@ -115,7 +112,7 @@
         font-size: 2.5em;
         font-family: "Libre Caslon Display", serif;
         font-weight: 600;
-        color: var(--text-light);
+        color: #f7f3f3;
         margin-top: 0;
       }
 
@@ -137,9 +134,9 @@
       .recipe-image {
           width: 150px;
           height: 150px;
-          border-radius: 50%; /* Circular image */
+          border-radius: 50%; 
           object-fit: cover;
-          border: 4px solid var(--text-light);
+          border: 4px solid #f7f3f3;
       }
       
       .stats-bar {
@@ -157,19 +154,15 @@
           font-family: "Libre Caslon Display", serif;
           font-size: 1.1em;
           font-weight: 700;
-          color: var(--text-light);
+          color: #f7f3f3;
           margin-bottom: 3px;
-      }
-      
-      .stat-item h4 {
-          font-size: 0.9em;
       }
 
       /* --- Button Style --- */
       .start-button {
           padding: 10px 40px;
-          background-color: var(--text-green);
-          color: var(--text-light);
+          background-color: #174517; /* Text Green */
+          color: #f7f3f3;
           border: none;
           border-radius: 25px;
           font-family: "Libre Caslon Display", serif;
@@ -204,7 +197,7 @@
           border-radius: 10px;
           object-fit: cover;
           margin-bottom: 5px;
-          border: 2px solid var(--text-light);
+          border: 2px solid #f7f3f3;
       }
       
       .related-recipe p {
@@ -222,55 +215,57 @@
     <div class="overlay"></div>
     
     <header>
-      <div class="logo">Logo</div>
-      <div class="search">Search...</div>
+      <div class="logo">
+        <a href="index.html">Trushti's Recipe Journal</a>
+      </div>
+      <div class="recipe-bar">
+        <a href="lonly_noodles.html">Recipe...</a>
+      </div>
     </header>
     
-    <div class="card-wrapper">
-        <div class="recipe-card">
+    <div class="recipe-card">
+        
+        <div class="top-content">
+            <img src="lonely-noodles-dish.jpg" alt="Lonely Noodles Dish" class="recipe-image" />
             
-            <div class="top-content">
-                <img src="lonely-noodles-dish.jpg" alt="Lonely Noodles Dish" class="recipe-image" />
-                
-                <div style="text-align: left;">
-                    <h1>Lonely Noodles</h1>
-                    <p style="font-size: 0.9em; margin: 5px 0 0 0;">By: Trushti S.</p>
-                </div>
+            <div style="text-align: left;">
+                <h1>Lonely Noodles</h1>
+                <p style="font-size: 0.9em; margin: 5px 0 0 0;">By: Trushti S.</p>
             </div>
-
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <strong>Servings</strong>
-                    <h4>1 Bowl</h4>
-                </div>
-                <div class="stat-item">
-                    <strong>Prep Time</strong>
-                    <h4>5 Min</h4>
-                </div>
-                <div class="stat-item">
-                    <strong>Cook Time</strong>
-                    <h4>10 Min</h4>
-                </div>
-            </div>
-
-            <button class="start-button">Start</button>
-            
-            <div class="related-grid">
-                <div class="related-recipe">
-                    <img src="quick-tuna.jpg" alt="Quick Tuna" />
-                    <p>Quick Tuna<br>3 min</p>
-                </div>
-                <div class="related-recipe">
-                    <img src="oatmeal.jpg" alt="Plain Oatmeal" />
-                    <p>Plain Oatmeal<br>5 min</p>
-                </div>
-                <div class="related-recipe">
-                    <img src="mac-cheese.jpg" alt="Microwave Mac" />
-                    <p>Microwave Mac<br>12 min</p>
-                </div>
-            </div>
-            
         </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <strong>Servings</strong>
+                <h4>1 Bowl</h4>
+            </div>
+            <div class="stat-item">
+                <strong>Prep Time</strong>
+                <h4>5 Min</h4>
+            </div>
+            <div class="stat-item">
+                <strong>Cook Time</strong>
+                <h4>10 Min</h4>
+            </div>
+        </div>
+
+        <button class="start-button">Start</button>
+        
+        <div class="related-grid">
+            <div class="related-recipe">
+                <img src="quick-tuna.jpg" alt="Quick Tuna" />
+                <p>Quick Tuna<br>3 min</p>
+            </div>
+            <div class="related-recipe">
+                <img src="oatmeal.jpg" alt="Plain Oatmeal" />
+                <p>Plain Oatmeal<br>5 min</p>
+            </div>
+            <div class="related-recipe">
+                <img src="mac-cheese.jpg" alt="Microwave Mac" />
+                <p>Microwave Mac<br>12 min</p>
+            </div>
+        </div>
+        
     </div>
   </body>
 </html>
