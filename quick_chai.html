@@ -5,8 +5,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Libre+Caslon+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gloria+Hallelujah&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gloria+Hallelujah&family=Libre+Caslon+Display&family=Reenie+Beanie&display=swap" rel="stylesheet">
+   
     <style>
       /* --- Direct Value Setup --- */
       /* Colors: #e6d3c3 (body), #f7f3f3 (text light), #174517 (text green) */
@@ -14,7 +18,7 @@
       /* --- Base styles & Centering --- */
       body {
         background-color: #e6d3c3;
-        font-family: "Diphylleia", serif;
+        font-family: "Gloria Hallelujah", serif;
         font-size: 18px; 
         line-height: 1.7;
         margin: 0;
@@ -107,14 +111,14 @@
       /* --- Typography --- */
       h1 {
         font-size: 2.5em;
-        font-family: "Libre Caslon Display", serif;
+        font-family: "Reenie Beanie", serif;
         font-weight: 600;
         color: #f7f3f3;
         margin-top: 0;
       }
 
       h4 {
-        font-family: "Diphylleia", serif;
+        font-family: "Gloria Hallelujah", serif;
         font-weight: 500;
         margin: 0;
         font-size: 1em;
@@ -150,6 +154,26 @@
           margin-right: auto;
       }
       
+      .start-button a {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .related-recipe:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        /* Darken the background slightly */
+        cursor: pointer;
+        /* Indicate it's clickable */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        /* Subtle shadow effect */
+      }
+      
       .stat-item strong {
           display: block;
           font-family: "Libre Caslon Display", serif;
@@ -177,6 +201,17 @@
       
       .start-button:hover {
           background-color: #1a641a;
+      }
+      
+      .start-button a {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
       }
       
       /* --- Related Recipes Grid --- */
@@ -229,6 +264,18 @@
           color: #f7f3f3;
       }
       
+      .related-recipe a {
+        /* Set the anchor to display as a block element */
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
+      }
+      
       .add-button {
           font-size: 1.5em;
           color: #174517;
@@ -252,14 +299,14 @@
         <a href="index.html">Trushti's Recipe Journal</a>
       </div>
       <div class="recipe-bar">
-        <a href="lonly_noodles.html">Recipe...</a>
+        <a href="lonly_noodles.html">Recipes</a>
       </div>
     </header>
     
     <div class="recipe-card">
         
         <div class="top-content">
-            <img src="quick-chai-dish.jpg" alt="Quick Chai Drink" class="recipe-image" /> 
+            <img src="quick_chai.jpg" alt="Quick Chai Drink" class="recipe-image" /> 
             
             <h1>Quick Chai</h1>
             <div style="font-size: 0.9em; margin: 5px 0 0 0; color: #bbb;">By: Trushti S.</div>
@@ -280,28 +327,36 @@
             </div>
         </div>
 
-        <button class="start-button">More</button>
+        <button class="start-button">
+          <a href="quick_chai_recipes.html">
+          More
+          </a>
+      </button>
         
         <div class="related-grid">
             
             <div class="related-recipe">
-                <img src="mood-cookies-dish.jpg" alt="Mood Cookies" />
+              <a href="mood_cookies.html">
+                <img src="cookies.jpg" alt="Mood Cookies" />
                 <div class="recipe-details">
                     <strong style="margin-bottom: 5px;">Mood Cookies</strong>
                     <p>Servings: 8-10</p>
                     <p>Cook Time: 12-15min</p>
                 </div>
                 <div class="add-button">+</div>
+                </a>
             </div>
             
             <div class="related-recipe">
-                <img src="lonely-noodles-dish.jpg" alt="Lonely Noodles" />
+              <a href="lonly_noodles.html">
+                <img src="lonly_noodles.jpg" alt="Lonely Noodles" />
                 <div class="recipe-details">
                     <strong style="margin-bottom: 5px;">Lonely Noodles</strong>
                     <p>Servings: 1 Bowl</p>
                     <p>Cook Time: 10 min</p>
                 </div>
                 <div class="add-button">+</div>
+                </a>
             </div>
         </div>
         
