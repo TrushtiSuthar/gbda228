@@ -8,35 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Libre+Caslon+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-      /* --- Variable Setup --- */
-      :root {
-        --bg-color: #e6d3c3;
-        --content-width: 1200px;
-        --text-dark: #1e1e1e;
-        --text-green: #174517;
-        --padding-main: 40px;
-        --font-size-base: 18px;
-        --line-height-base: 1.7;
-      }
 
       /* --- Base styles & Centering 1200px Content --- */
       body {
-        background-color: var(--bg-color);
+        background-color: #e6d3c3;
         font-family: "Diphylleia", serif;
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-base);
+        font-size: 18px;
+        line-height: 1.7;
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: var(--text-dark);
-      }
-
-      .content-wrapper {
-        width: 100%;
-        max-width: var(--content-width);
-        position: relative;
+        color: #1e1e1e;
       }
 
       /* --- TOP SECTION (Background Image Area) --- */
@@ -56,7 +40,7 @@
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        width: var(--content-width);
+        width: 1200px;
         max-width: calc(100% - 40px);
         z-index: 100;
 
@@ -73,11 +57,11 @@
       .logo {
         font-size: 24px;
         font-weight: bold;
-        color: var(--text-green);
+        color: #174517;
         font-family: "Libre Caslon Display", serif;
       }
 
-      .search {
+      .recipe-bar {
         width: 300px;
         height: 28px;
         padding: 8px 15px;
@@ -91,10 +75,12 @@
 
       /* --- Main Content Box (White Rounded Area) --- */
       .main-container {
+        max-width: 1200px;
         width: 100%;
+        margin: 0 auto;
         background-color: white;
         border-radius: 20px;
-        padding: 0 var(--padding-main) var(--padding-main) var(--padding-main);
+        padding: 0 40px 40px 40px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         margin-top: -120px;
         position: relative;
@@ -105,28 +91,27 @@
       /* --- Introduction Bubble (OVERLAPPING THE IMAGE) --- */
       .intro-bubble-wrapper {
         position: absolute;
-        top: -220px;
-        left: var(--padding-main);
+        top: 220px;
+        left: 5%;
         z-index: 20;
-        width: 450px;
+        width: 1200px;
       }
 
       .intro-bubble {
         padding: 25px;
         background-color: #f7f3f3;
         border-radius: 30px;
-        font-size: 1.35em;
+        font-size: 20PX;
         line-height: 1.5em;
         font-style: italic;
+        width: 450px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
 
       .intro-icons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-        margin-top: 10px;
-        font-size: 2em;
+        position: absolute;
+        left: 50%;        
+        font-size: 70px;
       }
 
       /* --- Main Grid Layout: 50/50 --- */
@@ -138,8 +123,8 @@
       }
 
       .grid-item {
-        font-size: var(--font-size-base);
-        line-height: var(--line-height-base);
+        font-size: 18px;
+        line-height: 1.7;
       }
 
       /* Image for Hands Cooking (Right Side Overlap) */
@@ -152,7 +137,8 @@
         margin-top: -160px;
         z-index: 5;
         position: absolute;
-        right: var(--padding-main);
+        right: 40px;
+        top: 0;
       }
 
       .grid-image {
@@ -166,22 +152,14 @@
       .grid-text-large {
         font-style: italic;
         font-size: 1.1em;
-        line-height: var(--line-height-base);
+        line-height: 1.7;
         border-left: 2px solid #ccc;
         /* Mimic separation line */
         padding-left: 20px;
         padding-top: 10px;
       }
 
-      /* Aligning the long image/text block to fit into the 50/50 grid */
-      .grid-span-2-columns {
-        grid-column: 1 / 3;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        /* Inner split to match the image/text ratio */
-        gap: 30px;
-        margin-bottom: 20px;
-      }
+      
     </style>
   </head>
 
@@ -192,10 +170,9 @@
 
     <header>
       <div class="logo">Trushti's Recipe Journal</div>
-      <div class="search">Search...</div>
+      <div class="recipe-bar">Recipe...</div>
     </header>
 
-    <div class="content-wrapper">
       <div class="intro-bubble-wrapper">
 
         <div class="intro-bubble">
@@ -203,18 +180,17 @@
           Hi, I'm Trushti, and I cook my feelings. <br><br>
           Welcome to my collection of recipes inspired by real moments.
           Each dish has its own tiny world.
-        </div>
         <div class="intro-icons">
-          <span>💨</span>
+          <li><a href="lonly_noodlees.html"><span>🍪</span></a></li>
           <span>🍜</span>
           <span>☕</span>
         </div>
+        </div>
+        
       </div>
 
       <div class="main-container">
         <p>
-          <br>
-          <br>
           <br>
           <br>
           <br>
@@ -250,6 +226,5 @@
 
         </div>
       </div>
-    </div>
   </body>
 </html>
